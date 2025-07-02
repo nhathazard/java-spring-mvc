@@ -2,11 +2,10 @@ package vn.hoidanit.laptopshop.controller;
 
 import java.util.List;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import vn.hoidanit.laptopshop.domain.User;
@@ -36,5 +35,10 @@ public class UserController {
     @RequestMapping("/admin/user")
     public List<User> getAllUsers() {
         return this.userService.getAllUsers();
+    }
+
+    @RequestMapping(value = "/admin/user", params = "email")
+    public List<User> getUserByEmail(@RequestParam String email) {
+        return this.userService.getUserByEmail(email);
     }
 }
