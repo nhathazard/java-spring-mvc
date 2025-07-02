@@ -1,5 +1,7 @@
 package vn.hoidanit.laptopshop.controller;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,5 +31,10 @@ public class UserController {
         System.out.println("nhat" + user);
         this.userService.handleSaveUser(user);
         return "admin";
+    }
+
+    @RequestMapping("/admin/user")
+    public List<User> getAllUsers() {
+        return this.userService.getAllUsers();
     }
 }
