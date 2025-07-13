@@ -32,12 +32,6 @@ public class Order {
     public void setId(Long id) {
         this.id = id;
     }
-    public Long getUserId() {
-        return userId;
-    }
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
     public double getTotalPrice() {
         return totalPrice;
     }
@@ -46,6 +40,6 @@ public class Order {
     }
     @Override
     public String toString() {
-        return "Order [id=" + id + ", userId=" + userId + ", totalPrice=" + totalPrice + "]";
+        return "Order [id=" + id + ", totalPrice=" + totalPrice + "]";
     }
 }
