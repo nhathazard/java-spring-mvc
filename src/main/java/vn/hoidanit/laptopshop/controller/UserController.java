@@ -38,7 +38,7 @@ public class UserController {
     }
 
     @PostMapping("/admin/user/create")
-    public User postMethodName(@ModelAttribute  User user) {
+    public User postMethodName(@RequestBody  User user) {
         System.out.println("user" + user);
         String hashPassword = this.passwordEncoder.encode(user.getPassword());
         user.setPassword(hashPassword);
@@ -51,8 +51,7 @@ public class UserController {
     String filename = UUID.randomUUID() + "_" + file.getOriginalFilename();
     Path path = Paths.get("src/main/resources/images/avatar/" + filename);
     Files.copy(file.getInputStream(), path);
-    String imagePath = "/images/avatar/" + filename;
-    return ResponseEntity.ok(imagePath);
+    return ResponseEntity.ok(filename);
 }
 
     @RequestMapping(value = "/admin/user", params = "email")
