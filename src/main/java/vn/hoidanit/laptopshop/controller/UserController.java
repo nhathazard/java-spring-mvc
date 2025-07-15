@@ -51,8 +51,6 @@ public class UserController {
     String filename = UUID.randomUUID() + "_" + file.getOriginalFilename();
     Path path = Paths.get("src/main/resources/images/avatar/" + filename);
     Files.copy(file.getInputStream(), path);
-
-    // Trả về đường dẫn để lưu vào DB hoặc hiển thị
     String imagePath = "/images/avatar/" + filename;
     return ResponseEntity.ok(imagePath);
 }
