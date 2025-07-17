@@ -1,6 +1,7 @@
 package vn.hoidanit.laptopshop.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -31,7 +32,7 @@ public class UserService {
         return this.userRepository.findAll();
     }
 
-    public List<User> getUserByEmail(String email) {
+    public Optional<User> getUserByEmail(String email) {
         return this.userRepository.findByEmail(email);
     }
 
